@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bhglxle1txjee"]
+
+[ext_resource type="Script" uid="uid://b0gw67c6iy7fi" path="res://Scenes/Bullet.cs" id="1_76lte"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3r504"]
+
+[node name="Bullet" type="Area2D" unique_id=627731551]
+script = ExtResource("1_76lte")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=370037519]
+offset_right = 5.0
+offset_bottom = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1797654487]
+shape = SubResource("SegmentShape2D_3r504")

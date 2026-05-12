@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="Script" uid="uid://dfvkkylpy5if8" path="res://Scenes/Player.cs" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://dvi4p2xfcae87" path="res://Scenes/Weapon.cs" id="1_kln2b"]
+[ext_resource type="Script" uid="uid://drucetsmnqfcv" path="res://Scenes/Enemy.cs" id="2_idj7w"]
+[ext_resource type="PackedScene" uid="uid://bhglxle1txjee" path="res://Scenes/Bullet.tscn" id="3_rgh2o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxg2q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r150o"]
+
+[node name="Main" type="Node2D" unique_id=1076254722]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1249468183 groups=["player"]]
+script = ExtResource("1_glv2v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1385183366]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1479301381]
+shape = SubResource("CircleShape2D_rxg2q")
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=1300209235]
+offset_left = -15.0
+offset_top = -12.0
+offset_right = 17.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Weapon" type="Node2D" parent="Player" unique_id=1529844259]
+script = ExtResource("1_kln2b")
+BulletScene = ExtResource("3_rgh2o")
+
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=941371489 groups=["enemy"]]
+position = Vector2(200, 71)
+script = ExtResource("2_idj7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=313258257]
+position = Vector2(-3, 0)
+shape = SubResource("CircleShape2D_r150o")
+
+[node name="ColorRect" type="ColorRect" parent="Enemy" unique_id=744325391]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="Bullets" type="Node2D" parent="." unique_id=1251053226]
